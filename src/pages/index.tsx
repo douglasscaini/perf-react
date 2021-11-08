@@ -18,8 +18,6 @@ export default function Home() {
     setResults(data);
   }
 
-  console.log(results);
-
   return (
     <div>
       <h1>Search:</h1>
