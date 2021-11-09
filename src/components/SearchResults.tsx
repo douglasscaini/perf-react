@@ -6,17 +6,13 @@ type SearchResultsProps = {
     id: number;
     price: number;
     title: string;
+    priceFormatted: string;
   }>;
   onAddToWishlist: (id: number) => void;
+  totalPrice: number;
 };
 
-export function SearchResults({ results, onAddToWishlist }: SearchResultsProps) {
-  const totalPrice = useMemo(() => {
-    return results.reduce((total, product) => {
-      return total + product.price;
-    }, 0);
-  }, [results]);
-
+export function SearchResults({ results, onAddToWishlist, totalPrice }: SearchResultsProps) {
   return (
     <div>
       <h2>Valor total: R$ {totalPrice}</h2>
