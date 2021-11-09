@@ -13,7 +13,7 @@ export default function Home() {
     }
 
     const response = await fetch(`http://localhost:3333/products?q=${search}`);
-    const data = await await response.json();
+    const data = await response.json();
 
     setResults(data);
   }
@@ -24,9 +24,8 @@ export default function Home() {
 
       <form onSubmit={handleSearch}>
         <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
+        <button type="submit">Buscar</button>
       </form>
-
-      <button type="submit">Buscar</button>
 
       <SearchResults results={results} />
     </div>
