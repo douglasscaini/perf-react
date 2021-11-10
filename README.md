@@ -1,34 +1,91 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center"><img src="./.github/logo.svg" width="100px"/></h1>
 
-## Getting Started
+<h3 align="center">Performance Optimization Techniques for React Apps</h3>
 
-First, run the development server:
+<p align="center">“Software developers are students forever 🧠”</p>
+
+<p align="center">
+  <a href="#about">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#description">Descrição</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#install">Instalação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#challenge">Desafios</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#technologies">Tecnologias</a>
+</p>
+
+## :speech_balloon: Sobre <a name="about"></a>
+
+> Essa aplicação foi construída para aprender algumas técnicas de performance do React.
+>
+> Uma nova renderização tem o seguinte fluxo:
+>
+> 1. O React gera uma nova versão do componente que precisa ser "renderizado".
+> 2. Compara essa nova versão com a versão anterior já salva na página.
+> 3. Se houverem alterações, o React "renderiza" essa nova versão em tela.
+>
+> Também ocorrem de três formas:
+>
+> 1. **Pai para filho:** quando o componente PAI sofre alteração, o componente FILHO será atualizado.
+> 2. **Propriedade:** quando uma propriedade atualiza.
+> 3. **Hooks:** useState, useContext, useReducer, entre outros...
+
+## :speech_balloon: Descrição <a name="description"></a>
+
+> **Memo:** Técnica utilizada para performar componentes. Não deixa atualizar a renderização.
+>
+> Trás alguns benefícios quando utilizado em:
+>
+> - Componentes puros.
+> - Componentes que renderizam muito.
+> - Quando um componente renderiza com as mesmas props.
+> - Quando o projeto está de médio para grande.
+
+> **useMemo:** É uma forma para performar algo complexo (geralmente cálculos) dentro da aplicação.
+>
+> Dois casos de uso são:
+>
+> - Cálculos pesados.
+> - Igualdade referencial (quando passa uma informação a um componente filho).
+
+> **useCallback:** Usado para igualdade referencial de funções. Utilizado geralmente quando se tem prop drilling. Também deve-se transformar a função em uma constante.
 
 ```bash
-npm run dev
-# or
-yarn dev
+const addToWishlist = useCallback(async (id: number) => {
+    console.log(id);
+  }, []);
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br />
+<table>
+  <tr>
+    <td colspan="1">Bundle Analyzer</td>
+  </tr>
+  <tr>
+    <td><img src="./.github/bundle.png" width="100%" /></td></td>
+  </tr>
+</table>
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## :warning: Instalação <a name="install"></a>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+# Instalar as dependências necessárias:
+$ yarn
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Iniciar o servidor:
+$ yarn server
 
-## Learn More
+# Iniciar o projeto:
+$ yarn dev
 
-To learn more about Next.js, take a look at the following resources:
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## :triangular_flag_on_post: Desafio <a name="challenge"></a>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+> Aplicabilidade das técnicas apresentadas acima.
 
-## Deploy on Vercel
+## :heavy_check_mark: Tecnologias <a name="technologies"></a>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [ReactJS](https://pt-br.reactjs.org/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+
+by [Douglas Scaini](https://www.github.com/douglasscaini) ❤️
