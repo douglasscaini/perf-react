@@ -30,7 +30,9 @@
 
 ## :speech_balloon: Descrição <a name="description"></a>
 
-> **Memo:** Técnica utilizada para performar componentes. Não deixa atualizar a renderização.
+> ## Memo
+>
+> Técnica utilizada para performar componentes. Não deixa atualizar a renderização.
 >
 > Trás alguns benefícios quando utilizado em:
 >
@@ -38,21 +40,64 @@
 > - Componentes que renderizam muito.
 > - Quando um componente renderiza com as mesmas props.
 > - Quando o projeto está de médio para grande.
+>
+> Exemplo de aplicação:
 
-> **useMemo:** É uma forma para performar algo complexo (geralmente cálculos) dentro da aplicação.
+```bash
+export const ProductItem = memo(ProductItemComponent, (prevProps, nextProps) => {
+  return Object.is(prevProps.product, nextProps.product);
+});
+```
+
+> ## useMemo
+>
+> É uma forma para performar algo complexo (geralmente cálculos) dentro da aplicação.
 >
 > Dois casos de uso são:
 >
 > - Cálculos pesados.
 > - Igualdade referencial (quando passa uma informação a um componente filho).
 
-> **useCallback:** Usado para igualdade referencial de funções. Utilizado geralmente quando se tem prop drilling. Também deve-se transformar a função em uma constante.
+> ## useCallback
+>
+> Usado para igualdade referencial de funções. Utilizado geralmente quando se tem prop drilling.
+>
+> Também deve-se transformar a função em uma constante:
 
 ```bash
 const addToWishlist = useCallback(async (id: number) => {
-    console.log(id);
-  }, []);
+  console.log(id);
+}, []);
 ```
+
+> ## Formatação de dados
+>
+> Os dados devem ser formados sempre na chamada da API (quando possível) e não na exibição. Evita processamento e gargalos.
+
+> ## Dynamic Import (Code Splitting)
+>
+> No bundle React, todas as importações são carregadas.
+> Com o Code Splitting é possível definir a importação somente quando o usuário for usar a funcionalidade, deixando assim a aplicação mais performática.
+>
+> Exemplo:
+
+```bash
+const AddProductToWishlist = dynamic<AddProductToWishlistProps>(() => {
+  return import("./AddProductToWishlist").then((mod) => mod.AddProductToWishlist);
+},{
+  loading: () => <span>Carregando...</span>,
+});
+```
+
+> ## Virtualização
+>
+> Carrega somente um número específico de itens para serem renderizados. São úteis para UX e desempenho na aplicação.
+
+> ## Bundle Analyzer
+>
+> Verifica quais dependência são maiores. Dessa forma é possível ver possíveis gargalos na aplicação durante o build.
+>
+> O bundle pode ser visualizado na imagem abaixo:
 
 <br />
 <table>
