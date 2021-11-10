@@ -70,9 +70,11 @@ const addToWishlist = useCallback(async (id: number) => {
 }, []);
 ```
 
-## Formatação de dados
+## Formatação de Dados
 
-Os dados devem ser formados sempre na chamada da API (quando possível) e não na exibição. Evita processamento e gargalos.
+Os dados devem ser formados sempre na chamada da API (quando possível) e não na exibição.
+
+Evita processamento e gargalos.
 
 ## Dynamic Import (Code Splitting)
 
@@ -84,20 +86,22 @@ Exemplo:
 ```bash
 const AddProductToWishlist = dynamic<AddProductToWishlistProps>(() => {
   return import("./AddProductToWishlist").then((mod) => mod.AddProductToWishlist);
-},{
+}, {
   loading: () => <span>Carregando...</span>,
 });
 ```
 
 ## Virtualização
 
-Carrega somente um número específico de itens para serem renderizados. São úteis para UX e desempenho na aplicação.
+Carrega somente um número específico de itens para serem renderizados.
+
+São úteis para UX e desempenho na aplicação.
 
 ## Bundle Analyzer
 
 Verifica quais dependência são maiores. Dessa forma é possível ver possíveis gargalos na aplicação durante o build.
 
-O bundle pode ser visualizado na imagem abaixo:
+O bundle pode ser visualizado abaixo:
 
 <br />
 <table>
