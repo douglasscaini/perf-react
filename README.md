@@ -28,7 +28,7 @@
 > 2. **Propriedade:** quando uma propriedade atualiza.
 > 3. **Hooks:** useState, useContext, useReducer, entre outros...
 
-## :speech_balloon: Descrição <a name="description"></a>
+## :left_speech_bubble: Descrição <a name="description"></a>
 
 ## Memo
 
