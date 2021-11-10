@@ -99,9 +99,9 @@ São úteis para UX e desempenho na aplicação.
 
 ## Bundle Analyzer
 
-Verifica quais dependência são maiores. Dessa forma é possível ver possíveis gargalos na aplicação durante o build.
+Verifica quais dependências são maiores. Dessa forma é possível ver possíveis gargalos na aplicação durante o build.
 
-O bundle pode ser visualizado abaixo:
+O bundle pode ser visualizado abaixo. Nele o lodash se destaca:
 
 <br />
 <table>
